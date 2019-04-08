@@ -1,0 +1,69 @@
+body {
+    background-color: gray;
+    align-content: center;
+}
+
+h1 {
+    padding: 20px;
+    background-color: red;
+    color: white;
+    float: left;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.rules-box {
+    clear: both;
+    background-color: yellow;
+    color: red;
+    padding: 20px;
+    width: 600px;
+    margin-bottom: 20px;
+}
+
+.random-number {
+    float: left;
+    background-color: green;
+    color: navy;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+    font-size: 30px;
+}
+
+.wins-losses {
+    float: left;
+    margin-left: 10px;
+    background-color: lightskyblue;
+    color: red;
+    padding: 30px;
+    height: 150px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.crystals {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+img {
+    border: 2px solid whitesmoke;
+}
+
+h3 {
+    background-color: lightslategray;
+    float: left;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.score {
+    clear: both;
+    background-color: lightslategray;
+    padding: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: 30px;
+
+}
