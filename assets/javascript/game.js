@@ -1,106 +1,108 @@
-$(document).ready (function() {
+$(document).ready(function() {
 
-var userScore = 0;
-var wins = 0;
-var losses = 0;
+let userScore=0;
+let wins=0;
+let losses=0;
 
-//Declare the global variables.
-//Randomize number ranges for computerNumber && crystals.
-var targetNumber = Math.floor(Math.random() * 102) + 19;
+//max of 100 min of 10
+let targetNumber = Math.floor(Math.random() * 100) + 10;  
+
 console.log(targetNumber);
 
 $(".random-number").text(targetNumber);
 
+let teamValues= {};
+teamValues[1] = Math.floor(Math.random() * 10) + 1;
+teamValues[2] = Math.floor(Math.random() * 10) + 1;
+teamValues[3] = Math.floor(Math.random() * 10) +1;
+teamValues[4] = Math.floor(Math.random() * 10) +1;
+console.log(teamValues);
 
+// for (let i= 0; i< teamValues.length; i++) {
+// // counter=(teamValues[i] + userScore);
 
-var crystalValue = {};
-crystalValue[1] = Math.floor(Math.random()*12+1);
-crystalValue[2] = Math.floor(Math.random()*12+1);
-crystalValue[3] = Math.floor(Math.random()*12+1);
-crystalValue[4] = Math.floor(Math.random()*12+1);
-console.log(crystalValue);
+// // $(".total").text(counter);
+
+// // console.log(counter);
+// };
 
 function reset() {
-    targetNumber=Math.floor(Math.random() * 102 + 19);
-    $(".random-number").text(targetNumber); 
-    var crystalValue = {};
-    crystalValue[1] = Math.floor(Math.random()*12+1);
-    crystalValue[2] = Math.floor(Math.random()*12+1);
-    crystalValue[3] = Math.floor(Math.random()*12+1);
-    crystalValue[4] = Math.floor(Math.random()*12+1);
-    userScore= 0;
-    console.log(crystalValue);
-}
+    targetNumber = Math.floor(Math.random() * 100) + 10;  
+    $(".random-number").text(targetNumber);
+    teamValues= {};
+    teamValues[1] = Math.floor(Math.random() * 10) + 1;
+    teamValues[2] = Math.floor(Math.random() * 10) + 1;
+    teamValues[3] = Math.floor(Math.random() * 10) +1;
+    teamValues[4] = Math.floor(Math.random() * 10) +1;
+    console.log(teamValues);
+    userScore=0;
+};
 
-function winner () {
-    $(".wins-losses").prepend("You Win!");
+function winner() {
+    alert("You won!");
     wins ++;
-    $("#wins").text(wins);
+    $("#wins").append(wins);
     reset();
-}
-// it's prepend not append.
-function loser () {
-    $(".wins-losses").prepend("You Loser.");
-    losses ++;
-    $("#losses").text(losses);
-    reset();
-}
+};
 
-$("#crystal1").on("click", function() {
-    userScore += crystalValue[1];
-    $(".score").text(userScore);
-    if(userScore === targetNumber){
+function loser() {
+    alert("You lose!");
+    losses++;
+    $("#losses").append(losses);
+    reset();
+};
+
+$("#team1").on("click", function(){
+  userScore += teamValues[1];
+
+    $(".total").text(userScore);
+    
+    if (userScore === targetNumber) {
         winner();
-    }
-    else if (userScore > targetNumber) {
+    } else if (userScore >= targetNumber){
         loser();
     }
-})
-$("#crystal2").on("click", function() {
-    $(".score").text(userScore);
-    userScore += crystalValue[2];
-    if(userScore === targetNumber){
+    
+});
+
+$("#team2").on("click", function() {
+    userScore += teamValues[2];
+
+    $(".total").text(userScore);
+
+    if(userScore === targetNumber) {
         winner();
-    }
-    else if (userScore > targetNumber) {
+    } else if 
+        (userScore >= targetNumber) {
         loser();
     }
-})
+    
+});
 
-$("#crystal3").on("click", function() {
-    $(".score").text(userScore);
-    userScore += crystalValue[3];
-    if(userScore === targetNumber){
-        winner();
-    }
-    else if (userScore > targetNumber) {
-        loser ();
-    }
-})
+$("#team3").on("click", function() {
+    userScore += teamValues[3];
 
-$("#crystal4").on("click", function() {
-    $(".score").text(userScore);
-    userScore += crystalValue[4];
-    if(userScore === targetNumber){
+    $(".total").text(userScore);
+
+    if(userScore === targetNumber) {
         winner();
+    } else if (userScore >= targetNumber){
+        loser();
     }
-    else if (userScore > targetNumber) {
+    
+});
+
+$("#team4").on("click", function() {
+    userScore += teamValues[4];
+
+    $(".total").text(userScore);
+
+    if(userScore === targetNumber) {
+        winner();
+    } else if (userScore >= targetNumber) {
         loser();
     }
 });
 
 
-   
-
-
-
-
-
-
-//still to do; add up crystal numbers till win or lose.
-//add score to div
-//alert You win or you lose.
-
-
 });
-
